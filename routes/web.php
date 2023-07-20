@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\LogController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('guest.index');
 });
 
 Route::get('/dashboard', function () {
@@ -27,5 +30,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/guest/index', [GuestController :: class, 'index'])
+    ->name('guest.index');
+Route::get('/log/show', [LogController :: class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('log.show');
 
 require __DIR__.'/auth.php';
