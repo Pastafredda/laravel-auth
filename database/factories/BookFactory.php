@@ -20,7 +20,7 @@ class BookFactory extends Factory
             "code" => fake() -> numerify('#############'),
             "title" => fake() ->sentence(),
             "author" => fake() ->name(),
-            "price" => fake() ->numberBetween(0, 500000),
+            "price" => fake() ->numberBetween(0, 50000),
             "plot" => fake() ->paragraph(1, true),
             "editor" => fake() ->words(3, true),
             "is_available" => fake() ->boolean()

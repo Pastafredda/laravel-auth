@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>ciaaaoooooooo</h1>
+    <ul>
+
+        <li>{{ $book->author }}</li>
+        <li>{{ $book->price }}</li>
+        <li>{{ $book->plot }}</li>
+        <li>{{ $book->editor }}</li>
+        <li>{{ $book->is_available }}</li>
+
+    </ul>
 @endsection
